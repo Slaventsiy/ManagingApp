@@ -1,4 +1,5 @@
-dist/
-npm-debug.log
-.lock-wscript
-
+.idea
+node_modules/
+coverage/
+reports/
+public/reports/
