@@ -7,7 +7,7 @@ define(["jquery", "backbone", "models/Model", "text!templates/heading.html"],
         var View = Backbone.View.extend({
 
             // The DOM Element associated with this view
-            el: ".example", 
+            el: ".example",
 
             // View constructor
             initialize: function() {
