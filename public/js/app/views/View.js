@@ -1,13 +1,13 @@
 // View.js
 // -------
-define(["jquery", "backbone", "models/Model", "text!templates/heading.html"],
+define(["jquery", "backbone", "models/Model", "text!templates/home.html"],
 
     function($, Backbone, Model, template){
 
         var View = Backbone.View.extend({
 
             // The DOM Element associated with this view
-            el: ".example",
+            el: ".content",
 
             // View constructor
             initialize: function() {
@@ -19,7 +19,6 @@ define(["jquery", "backbone", "models/Model", "text!templates/heading.html"],
 
             // View Event Handlers
             events: {
-
             },
 
             // Renders the view's template to the UI

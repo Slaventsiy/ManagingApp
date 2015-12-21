@@ -1,10 +1,11 @@
 // DesktopRouter.js
 // ----------------
-define(["jquery", "backbone", "models/Model", "views/View", "collections/Collection"],
+define(["jquery", "backbone", "models/Model", "views/View", "collections/Collection", "views/ItemsView", "views/AddItemView"],
 
-    function($, Backbone, Model, View, Collection) {
-
+    function($, Backbone, Model, View, Collection, ItemsView, AddItemView) {
+        var items = [{name: 'TV'}, {name: 'Fridge'}];
         var DesktopRouter = Backbone.Router.extend({
+
 
             initialize: function() {
 
@@ -17,7 +18,9 @@ define(["jquery", "backbone", "models/Model", "views/View", "collections/Collect
             routes: {
 
                 // When there is no hash on the url, the home method is called
-                "": "index"
+                "": "index",
+                "items/:category": "items",
+                "items/:category/*add": "add"
 
             },
 
@@ -26,6 +29,14 @@ define(["jquery", "backbone", "models/Model", "views/View", "collections/Collect
                 // Instantiates a new view which will render the header text to the page
                 new View();
 
+            },
+
+            items: function(category) {
+                new ItemsView(items, category);
+            },
+
+            add: function(category){
+                new AddItemView(category);
             }
 
         });
