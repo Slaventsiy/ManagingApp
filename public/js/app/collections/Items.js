@@ -9,7 +9,8 @@ define(["jquery","backbone","models/Item"],
 
         var Items = Backbone.Collection.extend({
 
-            model: Item
+            model: Item,
+            url: '/api/items' // TODO: implement REST API
 
         });
 

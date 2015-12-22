@@ -21,8 +21,8 @@ define(["jquery", "backbone", "models/Item", "text!templates/item.html"],
             },
 
             render: function() {
-
-                this.template = _.template(template, this.model.attributes);
+                //TODO: change cid to id once connected to the database
+                this.template = _.template(template, {'attributes': this.model.attributes, 'id': this.model.cid});
 
                 this.$el.html(this.template);
 

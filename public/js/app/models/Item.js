@@ -12,10 +12,14 @@ define(["jquery", "backbone"],
 
             },
 
+            // TODO: add id once connected to the database
             defaults: {
                 name: '',
-                checked: '',
-                category: ''
+                checked: false,
+                category: 'products',
+                state: 'Available',
+                description: '',
+                barcode: ''
             },
 
             validate: function(attrs) {

@@ -21,6 +21,25 @@ define(["jquery", "backbone", "collections/Items", "views/ItemView", "text!templ
 
             // View Event Handlers
             events: {
+                'click #delete': 'deleteItems',
+                'click [type="checkbox"]': 'checked'
+            },
+
+            deleteItems: function (e) {
+                e.preventDefault();
+
+                this.collection.each(function( item ) {
+                    if (item.get("checked")){
+                        item.destroy();
+                    }
+                }, this );
+                // TODO: find a way to refresh the view
+            },
+
+            checked: function(e){
+                var id = e.target.id;
+                var currentValue = this.collection.get(id).get("checked");
+                this.collection.get(id).set('checked', !currentValue);
             },
 
             // render library by rendering each book in its collection
@@ -31,6 +50,7 @@ define(["jquery", "backbone", "collections/Items", "views/ItemView", "text!templ
                     this.renderItem( item );
                 }, this );
                 this.$el.append('<a href="#/'+ Backbone.history.fragment + '/add"><button id="add" class="btn btn-default">Add</button></a>');
+                this.$el.append('<button id="delete" class="btn btn-default">Delete</button>');
             },
 
             // render a book by creating a BookView and appending the
