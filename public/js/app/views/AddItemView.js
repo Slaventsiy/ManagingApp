@@ -14,10 +14,11 @@ define(["jquery", "backbone", "models/Item", "collections/Items", "text!template
 
             el: ".content",
 
-            initialize: function(initialItems, category) {
+            initialize: function(category) {
 
                 cat = { category: category };
-                this.collection = new Collection(initialItems);
+                this.collection = new Collection();
+                this.collection.fetch({reset: true});
                 this.render();
 
             },
@@ -39,7 +40,8 @@ define(["jquery", "backbone", "models/Item", "collections/Items", "text!template
                     }
                 });
 
-                this.collection.add(new Item(formData));
+                console.log(formData);
+                this.collection.create(formData);
                 var url = '#/items/' + cat['category'];
                 Backbone.history.navigate(url, {trigger: true});
             },

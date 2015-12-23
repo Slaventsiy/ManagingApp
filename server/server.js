@@ -78,9 +78,15 @@ server.get( '/api/items', function( request, response ) {
 
 server.post( '/api/items', function( request, response ) {
   var item = new ItemModel({
-    id: request.body.id,
     gtin: request.body.gtin,
-    name: request.body.name
+    name: request.body.name,
+    inventory_id: request.body.inventory_id,
+    state: request.body.state,
+    description: request.body.description,
+    created_at: Date.now(),
+    updated_at: Date.now(),
+    deleted_at: null
+
   });
 
   return item.save( function( err ) {

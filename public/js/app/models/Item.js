@@ -8,22 +8,25 @@ define(["jquery", "backbone"],
         // Creates a new Backbone Model class object
         var Item = Backbone.Model.extend({
 
+            url: 'api/items',
+
             initialize: function() {
 
             },
 
-            // TODO: add id once connected to the database
             defaults: {
-                name: '',
+                inventory_id: 1,
                 checked: false,
-                category: 'products',
-                state: 'Available',
-                description: '',
-                barcode: ''
+                category: 'products'
             },
 
             validate: function(attrs) {
 
+            },
+
+            parse: function( response ) {
+                response.id = response._id;
+                return response;
             }
 
         });
