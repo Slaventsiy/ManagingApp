@@ -20,6 +20,7 @@ define(["jquery", "backbone", "collections/Items", "views/ItemView", "text!templ
 
                 this.listenTo( this.collection, 'add', this.renderItem );
                 this.listenTo( this.collection, 'reset', this.render );
+                this.listenTo( this.collection, 'remove', this.render);
             },
 
             // View Event Handlers
@@ -28,16 +29,14 @@ define(["jquery", "backbone", "collections/Items", "views/ItemView", "text!templ
                 'click [type="checkbox"]': 'checked'
             },
 
-            // TODO: add delete functionality to the server and update code here
             deleteItems: function (e) {
                 e.preventDefault();
 
                 this.collection.each(function( item ) {
                     if (item.get("checked")){
-                        this.collection.get(item).destroy();
+                        item.destroy();
                     }
                 }, this );
-                // TODO: find a way to refresh the view
             },
 
             checked: function(e){

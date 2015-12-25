@@ -40,7 +40,6 @@ define(["jquery", "backbone", "models/Item", "collections/Items", "text!template
                     }
                 });
 
-                console.log(formData);
                 this.collection.create(formData);
                 var url = '#/items/' + cat['category'];
                 Backbone.history.navigate(url, {trigger: true});

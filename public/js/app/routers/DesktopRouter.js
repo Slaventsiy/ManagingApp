@@ -19,8 +19,7 @@ define(["jquery", "backbone", "models/Model", "views/View", "collections/Items",
                 // When there is no hash on the url, the home method is called
                 "": "index",
                 "items/:category": "items",
-                "items/:category/*add": "add"/*,
-                "api/items": "getItems"*/
+                "items/:category/*add": "add"
 
             },
 
@@ -37,13 +36,7 @@ define(["jquery", "backbone", "models/Model", "views/View", "collections/Items",
 
             add: function(category){
                 new AddItemView(category);
-            }/*,
-
-            getItems: function(err, items){
-                this.itemList = new Items();
-                this.itemList.fetch();
-                console.log(this.itemList);
-            }*/
+            }
 
         });
 

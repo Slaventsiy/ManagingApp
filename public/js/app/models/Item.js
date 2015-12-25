@@ -8,7 +8,7 @@ define(["jquery", "backbone"],
         // Creates a new Backbone Model class object
         var Item = Backbone.Model.extend({
 
-            url: 'api/items',
+            urlRoot: 'api/items',
 
             initialize: function() {
 
