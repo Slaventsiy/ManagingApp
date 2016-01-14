@@ -1,14 +1,36 @@
 <!-- Remove inline CSS and put into corresponding files -->
-<header class="row">
-    <div class="col-xs-4">
-        <button type="button" class="btn btn-primary pull-right" style="margin-top: 25px;"></button>
-    </div>
-    <div class="col-xs-8">
+<!--navbar-->
+<!--navbar-->
+<div id="myNav" class=" navbar navbar-inverse navbar-fixed-top" >
+    <div class="container-fluid">
+        <!--iconBar-->
+        <div class="dropdown">
+            <button id="btniconBar" class="btn btn-default-dropdown-toggle" type="button"  data-toggle="dropdown">
+                <img width="20" height="20" src="img/Capture.PNG" alt="iconMenu5">
+            </button>
+            <ul  class="dropdown-menu">
+                <li class="dropdown-header" >Connect to the service</li>
+                <li><a href="viewEditProfile.php">Server 1</a></li>
+                <li><a href="">Server 2</a></li>
+            </ul>
+        </div>
+
+        <!--search-->
+        <div class="input-group input-group-sm pull-right" id="mySearch" >
+            <input  type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button id="btnSearchBox" class="btn btn-default" type="button">
+                            <img width="20" height="20" src="img/searchIcon.PNG" alt="iconSearch">
+                        </button>
+                    </span>
+        </div><!-- /input-group -->
         <h1>Inventory</h1>
     </div>
-</header>
-<div class="span12">
-<ul class="list-unstyled">
+</div>
+<!-- /finish navigation -->
+        <div class="container-fluid" id="myBtnGroup">
+
+<ul class= "list-unstyled"   >
     <li><a href="#/items/products"><button type="button" class="btn btn-primary btn-block">Products</button></a></li>
     <li><a href="#/items/electronics"><button type="button" class="btn btn-primary btn-block">Electronics</button></a></li>
     <li><a href="#/items/clothes"><button type="button" class="btn btn-primary btn-block">Clothes</button></a></li>

@@ -1,7 +1,7 @@
 
 h1 {
     color: black;
-    text-align: left;
+    text-align: center;
 }
 body{
     background: #CFD8DC;
@@ -13,3 +13,45 @@ body{
 .btn{
     background: #428bca;
 }
+
+/*navigation bar*/
+#myNav.navbar.navbar-inverse{background-color:#428bca;border-color:#428bca;
+    background-image:linear-gradient(to bottom,#428bca 0,#428bca 100%);}
+
+
+#btniconBar.btn-default-dropdown-toggle{
+    background-color:#428bca;
+    display:inline-block;
+    margin-bottom:0;
+    font-weight:400;
+    cursor:pointer;
+    background-image:none;border:1px solid transparent;
+    padding:6px 12px;
+    font-size:14px;
+    -webkit-user-select:none;-moz-user-select:none;
+    -ms-user-select:none;-o-user-select:none;user-select:none
+}
+
+#mySearch.pull-right{
+    width: 180px;
+    margin-top: -30px;
+}
+
+#btnSearchBox.btn-default{
+    color:#428bca;
+    background-color:#428bca;
+    border-color:#428bca;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-image:linear-gradient(to bottom,#428bca 0,#428bca 100%);
+}
+#myBtnGroup.container-fluid{
+    background-color:#CFD8DC;
+    margin-top: 155px;
+}
+#myBtnGroup2.container-fluid{
+    background-color:#CFD8DC;
+    margin-top: 155px;
+}
+
+
