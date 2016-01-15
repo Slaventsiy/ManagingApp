@@ -2,6 +2,7 @@
 h1 {
     color: black;
     text-align: center;
+    text-transform: capitalize;
 }
 body{
     background: #CFD8DC;
