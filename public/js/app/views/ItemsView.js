@@ -5,7 +5,7 @@ define(["jquery", "backbone", "collections/Items", "views/ItemView", "text!templ
 
     function($, Backbone, Collection, ItemView, Heading){
 
-        var cat = "";
+        var toPass = {};
 
         var ItemsView = Backbone.View.extend({
 
@@ -13,7 +13,7 @@ define(["jquery", "backbone", "collections/Items", "views/ItemView", "text!templ
 
             initialize: function(category) {
 
-                cat = { category: category };
+                toPass = { category: category , filter: ""};
                 this.collection = new Collection();
                 this.collection.fetch({reset: true});
 
@@ -26,7 +26,8 @@ define(["jquery", "backbone", "collections/Items", "views/ItemView", "text!templ
             // View Event Handlers
             events: {
                 'click #delete': 'deleteItems',
-                'click [type="checkbox"]': 'checked'
+                'click [type="checkbox"]': 'checked',
+                'input #search-input': 'filterItems'
             },
 
             deleteItems: function (e) {
@@ -43,17 +44,39 @@ define(["jquery", "backbone", "collections/Items", "views/ItemView", "text!templ
                 var id = e.target.id;
                 var currentValue = this.collection.get(id).get("checked");
                 this.collection.get(id).set('checked', !currentValue);
+
+                var itemsSelected = false;
+                this.collection.each(function( item ) {
+                    if (item.get("checked")){
+                        itemsSelected = true;
+                    }
+                }, this );
+                if (itemsSelected && $("#delete").length <= 0){
+                    this.$el.append('<button id="delete" class="btn btn-default">Delete</button>');
+                } else if (!itemsSelected){
+                    $("#delete").remove();
+                }
+            },
+
+            filterItems: function(e){
+                toPass["filter"] = e.target.value;
+                this.render();
             },
 
             // render library by rendering each book in its collection
             render: function() {
-                this.template = _.template(Heading, cat);
+                this.template = _.template(Heading, toPass);
                 this.$el.html(this.template);
                 this.collection.each(function( item ) {
-                    this.renderItem( item );
+                    if (toPass["filter"].length == 0){
+                        this.renderItem( item );
+                    } else {
+                        if (item.get("name").indexOf(toPass["filter"]) >= 0){
+                            this.renderItem(item);
+                        }
+                    }
                 }, this );
                 this.$el.append('<a href="#/'+ Backbone.history.fragment + '/add"><button id="add" class="btn btn-default">Add</button></a>');
-                this.$el.append('<button id="delete" class="btn btn-default">Delete</button>');
             },
 
             // render a book by creating a BookView and appending the

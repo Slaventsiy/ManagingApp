@@ -1,10 +1,20 @@
 <div id="myNav" class=" navbar navbar-inverse navbar-fixed-top" >
     <div class="container-fluid" >
-        <a href=""><button type="button" class="btn btn-default" aria-label="Back">
+        <a href=""><button type="button" id="back-button" class="btn btn-default" aria-label="Back">
             <img src="img/icons-png/arrow-l-black.png"/>
         </button>
         </a>
+        <!--search-->
+        <div class="input-group input-group-sm pull-right" id="mySearch" >
+            <input  type="text" id="search-input" class="form-control" placeholder="Search for..." value=<%= filter %>>
+                    <span class="input-group-btn">
+                        <button id="btnSearchBox" class="btn btn-default" type="button">
+                            <img width="20" height="20" src="img/searchIcon.PNG" alt="iconSearch">
+                        </button>
+                    </span>
+        </div><!-- /input-group -->
         <h1><%= category %></h1>
+
     </div>
 
 </div>

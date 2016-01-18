@@ -16,7 +16,7 @@ define(["jquery", "backbone", "models/Item", "collections/Items", "text!template
 
             initialize: function(category) {
 
-                cat = { category: category };
+                cat = { category: category, filter: "" };
                 this.collection = new Collection();
                 this.collection.fetch({reset: true});
                 this.render();
@@ -49,6 +49,7 @@ define(["jquery", "backbone", "models/Item", "collections/Items", "text!template
             render: function() {
                 this.template = _.template(Heading, cat);
                 this.$el.html(this.template);
+                $("#mySearch").remove();
                 this.template = _.template(AddItem);
                 this.$el.append(this.template);
             }

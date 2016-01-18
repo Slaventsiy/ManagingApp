@@ -3,6 +3,8 @@ h1 {
     color: black;
     text-align: center;
     text-transform: capitalize;
+    font-size: 2em;
+    padding-left: 1em;
 }
 body{
     background: #CFD8DC;
@@ -15,15 +17,42 @@ body{
     background: #428bca;
 }
 
+#delete, #add{
+    float: right;
+    margin-right: 5%;
+}
+
+.content ul{
+    margin-left: 5%;
+    font-size: 1em;
+}
+
 /*navigation bar*/
 #myNav.navbar.navbar-inverse{background-color:#428bca;border-color:#428bca;
     background-image:linear-gradient(to bottom,#428bca 0,#428bca 100%);}
 
+.dropdown{
+    position: absolute;
+}
+
+#back-button{
+    position: absolute;
+}
+
+#mySearch{
+    position: relative;
+    width: 5%;
+}
+
+#search-input{
+    width: 100px;
+}
 
 #btniconBar.btn-default-dropdown-toggle{
     background-color:#428bca;
     display:inline-block;
     margin-bottom:0;
+    margin-top: -5px;
     font-weight:400;
     cursor:pointer;
     background-image:none;border:1px solid transparent;
@@ -31,11 +60,6 @@ body{
     font-size:14px;
     -webkit-user-select:none;-moz-user-select:none;
     -ms-user-select:none;-o-user-select:none;user-select:none
-}
-
-#mySearch.pull-right{
-    width: 180px;
-    margin-top: -30px;
 }
 
 #btnSearchBox.btn-default{
@@ -49,6 +73,9 @@ body{
 #myBtnGroup.container-fluid{
     background-color:#CFD8DC;
     margin-top: 155px;
+}
+#myBtnGroup.container-fluid ul{
+    margin-left: 0;
 }
 #myBtnGroup2.container-fluid{
     background-color:#CFD8DC;
